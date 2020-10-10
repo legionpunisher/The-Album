@@ -24,8 +24,8 @@ class Image(models.Model):
 class Location(models.Model):
     name= models.CharField(max_length=30)
 
-#     def __str__(self):
-#         return self.image
+    def __str__(self):
+        return self.image
 # class Category(models.Model):
 #     name = models.CharField(max_length=30)
 #     def __str__(self):
