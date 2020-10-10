@@ -8,8 +8,26 @@ class Uploader(models.Model):
        
     def __str__(self):
         return self.first_name
-class category(models.Model):
-    name = models.CharField(max_length=30)
+
+class Image(models.Model):
+    image=models.ImageField()
+    image_name = models.CharField(max_length=30)    
+    uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
+    Description=models.TextField()
+    image_location=models.ForeignKey('Location',on_delete=models.CASCADE)
+    image_category=models.ForeignKey('Category',on_delete=models.CASCADE)
+
+
     def __str__(self):
-        return self.name
+        return self.image
+
+# class Location(models.Model):
+#     name= models.CharField(max_length=30)
+
+#     def __str__(self):
+#         return self.image
+# class Category(models.Model):
+#     name = models.CharField(max_length=30)
+#     def __str__(self):
+#         return self.image
    
