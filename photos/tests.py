@@ -12,3 +12,19 @@ class UploaderTestClass(TestCase):
         self.john.save_uploader()
         uploader = Uploader.objects.all()
         self.assertTrue(len(uploader) > 0)
+# Testing Delete Method
+    def test_delete_method(self):
+        self.john.save_uploader()
+        uploader = Uploader.objects.all()
+        self.assertTrue(len(uploader) > 0)
+# Testing display Method
+    def test_display_method(self):
+        self.john.save_uploader()
+        uploader = Uploader.objects.all()
+        self.assertTrue(len(uploader) > 0)
+# Testing updating Method
+    def test_updating_method(self):
+        self.john.save_uploader()
+        uploader = Uploader.objects.all()
+        self.assertTrue(len(uploader) > 0)
+

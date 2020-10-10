@@ -10,8 +10,15 @@ class Uploader(models.Model):
         return self.first_name
     def save_uploader(self):
         self.save()
+        
     def delete_uploader(self):
         self.delete()
+    def display_uploader(self):
+        self.display()
+    def display_uploader(self):
+        self.display()
+    def update_uploader(self):
+        self.update()
 
 class Image(models.Model):
     image=models.ImageField()
