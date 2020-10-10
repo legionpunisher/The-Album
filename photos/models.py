@@ -8,6 +8,10 @@ class Uploader(models.Model):
        
     def __str__(self):
         return self.first_name
+    def save_uploader(self):
+        self.save()
+    def delete_uploader(self):
+        self.delete()
 
 class Image(models.Model):
     image=models.ImageField()
