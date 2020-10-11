@@ -18,7 +18,7 @@ class Uploader(models.Model):
         self.update()
 
 class Image(models.Model):
-    image=models.ImageField()
+    image=models.ImageField(upload_to='image.html')
     image_name = models.CharField(max_length=30)    
     uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
     Description=models.TextField()
@@ -38,5 +38,8 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
-
+    # @classmethod
+    # def todays_photos(cls):
+    #     photos = cls.object.filter(image=today)
+    #     return photos
    

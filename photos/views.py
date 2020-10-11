@@ -5,6 +5,7 @@ from .models import Image
 def welcome(request):
     return render(request, 'welcome.html')
 def uploaded_photos(request):
+    photos=Image.image
     return render (request,'all-photos/image.html')
 
 def all_photos(request):
