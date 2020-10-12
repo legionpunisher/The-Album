@@ -25,19 +25,20 @@ class Location(models.Model):
 
     def __str__(self):
         return self.name
-class Category(models.Model):
+class categories(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
 
+
 class Image(models.Model):
-    image=models.ImageField(upload_to='images/')
-    image_name = models.CharField(max_length=30)    
+    name= models.CharField(max_length=50)
+    description = HTMLField()
+    gallery_image = models.ImageField(upload_to='album/', blank=True)
     uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
-    Description=models.TextField()
-    image_location=models.ForeignKey('Location',on_delete=models.CASCADE)
-    image_category=models.ForeignKey('Category',on_delete=models.CASCADE)
-    
+    categories = models.ManyToManyField(categories)
+    location = models.ForeignKey(Location,on_delete=models.CASCADE)
+
     @classmethod
     def all_images(self):
 
