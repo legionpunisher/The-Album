@@ -17,18 +17,6 @@ class Uploader(models.Model):
     def update_uploader(self):
         self.update()
 
-class Image(models.Model):
-    image=models.ImageField(upload_to='images/')
-    image_name = models.CharField(max_length=30)    
-    uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
-    Description=models.TextField()
-    image_location=models.ForeignKey('Location',on_delete=models.CASCADE)
-    image_category=models.ForeignKey('Category',on_delete=models.CASCADE)
-
-
-    def __str__(self):
-        return self.image_name
-
 class Location(models.Model):
     name= models.CharField(max_length=30)
 
@@ -38,8 +26,31 @@ class Category(models.Model):
     name = models.CharField(max_length=30)
     def __str__(self):
         return self.name
-    # @classmethod
-    # def todays_photos(cls):
-    #     photos = cls.object.filter(image=today)
-    #     return photos
-   
+
+class Image(models.Model):
+    image=models.ImageField(upload_to='images/')
+    image_name = models.CharField(max_length=30)    
+    uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
+    Description=models.TextField()
+    image_location=models.ForeignKey('Location',on_delete=models.CASCADE)
+    image_category=models.ForeignKey('Category',on_delete=models.CASCADE)
+    
+    @classmethod
+    def all_images(self):
+
+        return Image.objects.all()
+
+    @classmethod
+    def search_by_category(cls,search_images):
+        images = Image.objects.filter(categories__name__icontains=search_images)
+        return images
+
+    @classmethod
+    def view_location(cls,name):
+        location = cls.objects.filter(location=name)
+        return location
+
+    @classmethod
+    def view_category(cls,cat):
+        categories = cls.objects.filter(categories=cat)
+        return categories
