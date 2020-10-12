@@ -1,23 +1,23 @@
-{%extends 'all-photos/base.html'%} {% block content %}
-
+{%extends 'base.html'%} {% block content %} {{ block.super}} {% load bootstrap4 %}
+<br>
+<br>
 <div class="container">
 
-    <div class="row">
-        <img src="{{image.image_image.url}}" class="img-responsive" alt="">
-    </div>
+    <div class="card-columns">
 
-    <div class="row">
-        <h1 class="text-center">{{image.image_name}}</h1>
-    </div>
+        <div class="card border-secondary">
+            <img class="card-img-top" class="img-responsive" src="{{image.gallery_image.url}}" data-target="#extraModal{{image.id}}" data-toggle="modal" size="100px200">
+        </div>
+        <div class="card-body">
+            <p>About: {{image.description}}</p>
+            <p>Location: {{image.location}}</p>
 
-    <div class="row">
-        <p>{{image.Category}}</p>
-    </div>
+            {% for category in image.categories.all %}
+            <p> Category: {{ category.name }} </p>
+            {% endfor %}
+        </div>
 
-    <div class="row">
-        <p>Description {{image.Description}}</p>
     </div>
 
 </div>
-
 {% endblock %}
