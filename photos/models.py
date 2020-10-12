@@ -18,7 +18,7 @@ class Uploader(models.Model):
         self.update()
 
 class Image(models.Model):
-    image=models.ImageField(upload_to='image.html')
+    image=models.ImageField(upload_to='images/')
     image_name = models.CharField(max_length=30)    
     uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
     Description=models.TextField()
@@ -27,7 +27,7 @@ class Image(models.Model):
 
 
     def __str__(self):
-        return self.image
+        return self.image_name
 
 class Location(models.Model):
     name= models.CharField(max_length=30)
