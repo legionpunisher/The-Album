@@ -34,11 +34,13 @@ class categories(models.Model):
 class Image(models.Model):
     name= models.CharField(max_length=50)
     description = HTMLField()
-    gallery_image = models.ImageField(upload_to='album/', blank=True)
+    image = models.ImageField(upload_to='media/')
     uploader=models.ForeignKey(Uploader,on_delete=models.CASCADE)
     categories = models.ManyToManyField(categories)
     location = models.ForeignKey(Location,on_delete=models.CASCADE)
-
+    
+    def __str__(self):
+        return self.name
     @classmethod
     def all_images(self):
 
