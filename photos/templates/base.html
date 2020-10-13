@@ -4,9 +4,9 @@
 
 <head>
     <meta charset="utf-8"> {% if title %}
-    <title>THE FALCON ALBUM HUB - {{title}}</title>
+    <title>THE FALCON ALBUM - {{title}}</title>
     {% else %}
-    <title> THE FALCON ALBUM HUB </title>
+    <title> THE FALCON ALBUM </title>
     {% endif %}
 
     <!-- <script data-require="jquery@*" data-semver="2.2.0" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> -->
@@ -18,7 +18,7 @@
 <body>
     {% include "navbar.html" %} {% block content %}{%endblock%} {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="{% static 'js/script.js' %}">
+    <script src="{% static 'scripts.js' %}">
     </script>
     {% bootstrap_javascript %} {% endblock %}
 </body>
