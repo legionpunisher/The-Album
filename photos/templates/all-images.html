@@ -13,7 +13,7 @@
 
 </div>
 
-<!-- Large modal -->
+
 {% for image in images %}
 
 <!-- Modal -->
@@ -35,7 +35,7 @@
         <p> Category: {{ category.name }} </p>
         {% endfor %}
 
-        <!-- The button used to copy the text -->
+      
 
         <button type="button" name="button" class="btn btn-info" value="https://falconpunisher.herokuapp.com{{image.image.url}}" onclick="copylink(this.value)">Copy Image Link</button>
             </div>
